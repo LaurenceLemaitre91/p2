@@ -13,8 +13,66 @@ datasource db {
   url = env("POSTGRES_PRISMA_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+
+model Role {
+  id_role Int    @id @default(autoincrement())
+  nom_role String
+  adherents Adherent[]
+}
+
+model Adherent {
+  id_licence    String   @id
+  nom           String
+  prenom        String
+  photo         String?
+  genre         String?
+  date_naissance DateTime
+  num_tel       String?
+  email         String  @unique
+  pseudo        String  @unique
+  mdp           String
+  ville         String?
+  main_dominante String?
+  id_role       Int
+  role          Role     @relation(fields: [id_role], references: [id_role])
+  adhesion      Adhesion?
+  type_arc      TypeArc?
+  evenements    EvenementHasAdherent[]
+
+  @@index([email, pseudo], name: "email_pseudo_unique")
+}
+
+model Adhesion {
+  id_adhesion   Int      @id @default(autoincrement())
+  tarif         Int
+  date_adhesion DateTime?
+  id_licence    String
+  adherent      Adherent @relation(fields: [id_licence], references: [id_licence])
+
+  @@unique([id_licence])
+}
+
+model TypeArc {
+  id_arc     Int      @id @default(autoincrement())
+  nom_arc    String
+  id_licence String
+  adherent   Adherent @relation(fields: [id_licence], references: [id_licence])
+
+  @@unique([id_licence])
+}
+
+model EvenementHasAdherent {
+  id_evt     Int      @id @default(autoincrement())
+  id_licence String
+  adherent   Adherent @relation(fields: [id_licence], references: [id_licence])
+  evenement  Evenement @relation(fields: [id_evt], references: [id_evt])
+}
+
+model Evenement {
+  id_evt        Int      @id @default(autoincrement())
+  nom           String
+  date_evt      DateTime
+  date_creation DateTime @default(now())
+  description   String
+  participants  EvenementHasAdherent[]
 }
