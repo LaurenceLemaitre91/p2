@@ -2,79 +2,176 @@
 
 .header {
   display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   margin: auto;
   background-image: url("/images/banniere.webp");
   background-repeat: no-repeat;
- background-position: 60%;
+  background-position: 60%;
   block-size: 350px;
 }
-.navbar{
+.navbar {
   display: flex;
   align-items: center;
- position: relative;
- right: 10%;
- top:  90%;
+  position: relative;
+  right: 25%;
+
+  top: 90%;
   background-color: var(--color_secondary);
   padding: 30px;
   text-align: center;
   height: 2%;
 
-/*------- Ombre de la Navbar header---------- */
--webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 16px 16px 14px 22px rgba(0,0,0,0.02); 
-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 16px 16px 14px 22px rgba(0,0,0,0.02);
- 
+  /*------- Ombre de la Navbar header---------- */
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    16px 16px 14px 22px rgba(0, 0, 0, 0.02);
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
+    16px 16px 14px 22px rgba(0, 0, 0, 0.02);
 }
-.link__navbar{
+.link__navbar {
   color: white;
   margin: 10px;
-  padding: 10px ;
+  padding: 10px;
   text-decoration: none;
   font-size: 18px;
 }
-.link__navbar:hover{
+.link__navbar:hover {
   color: var(--color_secondary);
   background-color: white;
 }
-.link__navbar:focus{
+.link__navbar:focus {
   color: var(--color_violet);
 }
+/* ---------- BUTTON ------------ */
+.btn {
+  margin: 20px;
+  font-size: 15px;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    var(--color_secondary) 0%,
+    var(--color_violet) 100%
+  );
+  padding: 10px 30px;
+  border: 2px solid var(--color_secondary);
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 220px;
+  height: 70px;
+}
+
+.btn:hover {
+  transition: 1000ms;
+  padding: 10px 50px;
+  transform: translateY(-0px);
+  background: linear-gradient(
+    90deg,
+    var(--color_secondary) 0%,
+    var(--color_violet) 100%
+  );
+  color: white;
+  border: solid 2px var(--color_secondary);
+}
+
 /* ---------- HOME ------------ */
-.navhome{
+
+.icon__div__img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.div__bouton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.icon__p {
+  align-items: center;
+  font-family: var(----font-specs);
+  font-size: medium;
+}
+.navhome {
   text-align: center;
   margin: 30px;
 }
-.link__navhome{
+.link__navhome {
   font-size: 20px;
   padding: 20px;
   margin: 50px;
   text-decoration: none;
   color: var(--color_secondary);
 }
-.histoire__art{
+.link__navhome:hover {
+  text-decoration: underline var(--color_secondary);
+}
+.histoire__art {
   display: flex;
   align-items: center;
 }
+.histoire__art__div {
+  margin: 20px;
+  width: 50%;
+  padding: 10px;
+}
+.obj__p {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.event__p {
+  text-align: center;
+}
+.div__img__paratir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.localisation__p {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.img__localisation {
+  margin: 40px;
+}
+.div {
+  display: flex;
+  justify-content: center;
+}
+/* ---------- ADMIN ------------ */
+.btn_admin {
+  display: flex;
+  justify-content: center;
+}
 /* ---------- FOOTER ------------ */
-.footer{
-  background-color: var( --bg_footer);
+.footer {
+  background-color: var(--bg_footer);
 }
-.footer__div{
- display: flex;
- justify-content: space-between;
- align-items: center;
+.footer__div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.link{
+.link {
   margin: 30px;
   text-decoration: none;
   color: #000000;
 }
-.link:hover{
+.link:hover {
   color: var(--color_secondary);
 }
-.footer__adresse{
-margin-right: 15px;
+.footer__adresse {
+  margin-right: 15px;
 }
-.copy{
+.copy {
   text-align: center;
 }

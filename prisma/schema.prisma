@@ -21,25 +21,22 @@ model Role {
 }
 
 model Adherent {
-  id_licence    String   @id
-  nom           String
-  prenom        String
-  photo         String?
-  genre         String?
-  date_naissance DateTime
-  num_tel       String?
-  email         String  @unique
-  pseudo        String  @unique
-  mdp           String
-  ville         String?
-  main_dominante String?
-  id_role       Int
-  role          Role     @relation(fields: [id_role], references: [id_role])
-  adhesion      Adhesion?
-  type_arc      TypeArc?
-  evenements    EvenementHasAdherent[]
-
-  @@index([email, pseudo], name: "email_pseudo_unique")
+  id_licence      String   @id
+  nom             String
+  prenom          String
+  genre           String?
+  date_naissance  DateTime?
+  num_tel         String
+  email           String @unique
+  pseudo          String  @unique
+  mdp             String
+  ville           String
+  main_dominante  String
+  id_role         Int
+  role            Role     @relation(fields: [id_role], references: [id_role])
+  adhesion        Adhesion?
+  type_arc        TypeArc?
+  evenements      EvenementHasAdherent[]
 }
 
 model Adhesion {

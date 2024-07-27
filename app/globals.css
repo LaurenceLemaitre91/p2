@@ -5,6 +5,10 @@
 }
 
 :root {
+  /* polices de caractères */
+  --font-titres: "titres", sans-serif;
+  --font-textes: "textes", sans-serif;
+  --font-specs: "specs", sans-serif;
   /* Color palette */
   --color_primary: #fe0000;
   --color_secondary: #5a9bd5;
@@ -12,19 +16,78 @@
   --bg_footer: #deeaf6;
   --color_white: #ffffff;
 }
-h2{
+Link {
+  font-family: var(--font-textes);
+}
+h2 {
   text-transform: uppercase;
   color: var(--color_primary);
   text-align: center;
   margin: 30px;
   font-size: 40px;
 }
-h3{
+h3 {
   text-align: center;
   font-size: 30px;
   color: var(--color_secondary);
 }
-p{
+h4 {
+  font-size: 20px;
   text-align: center;
-  margin: 10px;
+  text-decoration: underline black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin: 20px;
+  height: 40px;
+  width: 500px;
+  border: solid 3px var(--color_secondary);
+}
+p {
+  font-family: var(--font-textes);
+  margin: 20px;
+  text-align: justify;
+  font-size: x-large;
+}
+
+h1 h2 h3 h4 {
+  font-family: var(--font-titres);
+}
+
+/* ---------- TABLEAUX ------------ */
+table {
+  table-layout: fixed;
+  width: 90%;
+  border-collapse: collapse;
+  font-family: var(--font-textes);
+  border: solid 1px black;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+thead {
+  padding: 50px;
+  border: solid 1px black;
+  background-color: var(--color_secondary);
+}
+
+th td {
+  padding: 50px;
+}
+
+td {
+  text-align: center;
+  border: solid 1px black;
+}
+
+th {
+  border: solid 1px black;
 }
