@@ -13,6 +13,7 @@ const AdherentSchema = z.object({
   date_naissance: z.string().refine((val) => !isNaN(Date.parse(val)), {
     message: "Format de date invalide",
   }), // S'assurer que c'est une chaîne de date valide
+  //pas number car peut contenir des espaces ou des tirets
   num_tel: z.string(),
   email: z.string().email(),
   pseudo: z.string(),
@@ -36,16 +37,16 @@ export async function POST(request: Request) {
     // Valider les données avec Zod
     const validatedData = AdherentSchema.parse(data);
 
-    // Hacher le mot de passe
-    const salt = await bcrypt.genSalt(10);
-    validatedData.mdp = await bcrypt.hash(validatedData.mdp, salt);
-
     // Convertir date_naissance au format JJ/MM/AAAA
     validatedData.date_naissance = new Date(
       validatedData.date_naissance
     ).toISOString();
 
     console.log("Données validées :", validatedData);
+
+    // Hacher le mot de passe
+    const salt = await bcrypt.genSalt(10);
+    validatedData.mdp = await bcrypt.hash(validatedData.mdp, salt);
 
     const adCreate = await prisma.adherent.create({
       data: validatedData,
