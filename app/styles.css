@@ -152,6 +152,11 @@
   display: flex;
   justify-content: center;
 }
+
+/* ---------- ADMIN ------------ */
+.score_div {
+  background-image: url("../public/icon/cible.png");
+}
 /* ---------- FOOTER ------------ */
 .footer {
   background-color: var(--bg_footer);
