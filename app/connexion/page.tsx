@@ -2,7 +2,8 @@
 "use client"; // Indique que ce composant est un composant client
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation"; // Utilisez 'next/navigation' pour les composants client
+// Utilisez 'next/navigation' pour les composants client
+import { useRouter } from "next/navigation";
 
 const Connexion = () => {
   const router = useRouter();
@@ -10,23 +11,30 @@ const Connexion = () => {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setErrorMessage(null); // Réinitialiser le message d'erreur
+    // Réinitialiser le message d'erreur
+    setErrorMessage(null);
 
     const formData = new FormData(event.currentTarget);
     const pseudo = formData.get("pseudo") as string;
     const mdp = formData.get("mdp") as string;
 
+    // Validation simple côté client
+    if (!pseudo || !mdp) {
+      setErrorMessage("Identifiant et mot de passe requis.");
+      return;
+    }
     const response = await fetch("/api/auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pseudo, mdp }),
     });
+    console.log("Statut de la réponse :", response.status);
+    console.log("Réponse du serveur :", await response.text());
 
     if (response.ok) {
       router.push("/adherent");
     } else {
-      const errorData = await response.json();
-      setErrorMessage(errorData.error || "Une erreur est survenue.");
+      setErrorMessage("Une erreur est survenue.");
     }
   }
   return (
