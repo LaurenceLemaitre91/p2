@@ -27,9 +27,9 @@ model Adherent {
   genre           String?
   date_naissance  DateTime?
   num_tel         String
-  email           String @unique
+  email           String
   pseudo          String  @unique
-  mdp             String
+  mdp             String @unique
   ville           String
   main_dominante  String
   id_role         Int

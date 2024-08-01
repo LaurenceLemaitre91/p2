@@ -91,3 +91,9 @@ td {
 th {
   border: solid 1px black;
 }
+.bleu {
+  background-color: var(--bg_footer);
+}
+.blanc {
+  background-color: var(--color_white);
+}

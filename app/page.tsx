@@ -1,9 +1,13 @@
 // Importer les modules nécessaires et activer le mode client
-"use client"; // <-- Ajoutez cette ligne en haut du fichier pour indiquer que ce composant est un composant client.
+//  ce composant est un composant client.
+"use client";
 
-import Image from "next/image"; // Importation du composant Image de Next.js pour gérer les images.
-import Link from "next/link"; // Importation du composant Link de Next.js pour la navigation entre les pages.
-import { useEffect, useState } from "react"; // Importation des hooks useEffect et useState de React.
+// Importation du composant Image de Next.js pour gérer les images.
+import Image from "next/image";
+// Importation du composant Link de Next.js pour la navigation entre les pages.
+import Link from "next/link";
+// Importation des hooks useEffect et useState de React.
+import { useEffect, useState } from "react";
 
 // Définir le type TypeScript pour les événements
 type Evenement = {
