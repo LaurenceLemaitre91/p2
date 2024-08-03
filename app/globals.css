@@ -27,6 +27,7 @@ h2 {
   font-size: 40px;
 }
 h3 {
+  margin: 20px;
   text-align: center;
   font-size: 30px;
   color: var(--color_secondary);
@@ -36,7 +37,20 @@ h4 {
   text-align: center;
   text-decoration: underline black;
 }
+p {
+  font-family: var(--font-textes);
+  margin: 20px;
+  text-align: justify;
+  font-size: x-large;
+}
 
+h1 h2 h3 h4 {
+  font-family: var(--font-titres);
+}
+a {
+  margin-left: 15px;
+}
+/* ---------- FORMULAIRE ------------ */
 form {
   display: flex;
   flex-direction: column;
@@ -49,46 +63,36 @@ input {
   width: 500px;
   border: solid 3px var(--color_secondary);
 }
-p {
-  font-family: var(--font-textes);
+textarea {
   margin: 20px;
-  text-align: justify;
-  font-size: x-large;
+  border: solid 3px var(--color_secondary);
 }
-
-h1 h2 h3 h4 {
-  font-family: var(--font-titres);
+label {
+  font-family: var(--font-textes);
 }
-
 /* ---------- TABLEAUX ------------ */
 table {
   table-layout: fixed;
-  width: 90%;
   border-collapse: collapse;
   font-family: var(--font-textes);
   border: solid 1px black;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: auto;
 }
 
 thead {
-  padding: 50px;
+  color: white;
   border: solid 1px black;
   background-color: var(--color_secondary);
 }
 
-th td {
-  padding: 50px;
-}
-
 td {
+  padding: 10px;
   text-align: center;
   border: solid 1px black;
 }
 
 th {
+  padding: 10px;
   border: solid 1px black;
 }
 .bleu {

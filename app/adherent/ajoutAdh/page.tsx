@@ -1,9 +1,11 @@
+"use client";
+
 import FormInscription from "../../lib/formInscription";
 
-export default function Inscription() {
+export default function ajoutAdh() {
   return (
     <>
-      <h2>Votre Inscription</h2>
+      <h2>Ajouter un Adhérent</h2>
       <FormInscription />
     </>
   );
