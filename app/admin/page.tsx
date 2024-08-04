@@ -149,7 +149,10 @@ export default function Admin() {
                 <td>{event.ville}</td>
                 <td>{event.main_dominante}</td>
                 <td>
-                  <a href={`/modifier/${event.id_licence}`} className="">
+                  <a
+                    href={`adherent/modifierAdh/${event.id_licence}`}
+                    className=""
+                  >
                     Modifier
                   </a>
                   <a href={`/supprimer/${event.id_licence}`} className="">
@@ -202,7 +205,9 @@ export default function Admin() {
                 <td>{event.description}</td>
                 <td>
                   <a href={`events/modifierEvent/${event.id_evt}`}>Modifier</a>
-                  <a href={`/supprimerEvent/${event.id_evt}`}>Supprimer</a>
+                  <a href={`events/supprimerEvent/${event.id_evt}`}>
+                    Supprimer
+                  </a>
                 </td>
               </tr>
             ))}
