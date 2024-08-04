@@ -8,7 +8,7 @@ const FormEvent: React.FC = () => {
   const [formData, setFormData] = useState({
     nom: "",
     date_evt: "",
-    date_creation: new Date().toISOString().split("T")[0], // Set to today's date in YYYY-MM-DD format
+    date_creation: new Date().toISOString().split("T")[0],
     description: "",
   });
   const [erreur, setErreur] = useState<string | null>(null);
@@ -81,7 +81,7 @@ const FormEvent: React.FC = () => {
         <textarea
           rows={20}
           cols={50}
-          name="description" // Ensure this matches the API's expected field
+          name="description"
           id="desc"
           required
           value={formData.description}
