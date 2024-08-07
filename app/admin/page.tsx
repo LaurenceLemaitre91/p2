@@ -2,6 +2,7 @@
 import { Adherent } from "@prisma/client";
 // Importation du composant Link de Next.js pour la navigation entre les pages.
 import Link from "next/link";
+import React from "react";
 
 // Importation des hooks useEffect et useState de React
 import { useEffect, useState } from "react";
@@ -119,43 +120,50 @@ export default function Admin() {
                 Main dominante
               </th>
               <th className="listadh__table__thead__tr__th" scope="col">
+                Type Arc
+              </th>
+              <th className="listadh__table__thead__tr__th" scope="col">
                 Actions
               </th>
             </tr>
           </thead>
           <tbody className="listadh__table__body">
             {/* Données du Tableau */}
-            {adhs.map((event, index) => (
+            {adhs.map((adh, index) => (
               <tr
-                key={event.id_licence}
+                key={adh.id_licence}
                 // Appliquer une classe différente pour chaque ligne paire et impaire
                 // si paire = bleu sinon Blanc
                 // % modulo renvoie le Reste de a Division si index % 2 === 0 pair sinon impaire
                 className={index % 2 === 0 ? "bleu" : "blanc"}
               >
-                <td>{event.nom}</td>
-                <td>{event.prenom}</td>
-                <td>{event.genre}</td>
+                <td>{adh.nom}</td>
+                <td>{adh.prenom}</td>
+                <td>{adh.genre}</td>
                 {/* Cela affiche "N/A" si date_naissance est null format Français */}
                 <td>
-                  {event.date_naissance
-                    ? formatDate(new Date(event.date_naissance))
+                  {adh.date_naissance
+                    ? formatDate(new Date(adh.date_naissance))
                     : "N/A"}
                 </td>
 
-                <td>{event.num_tel}</td>
-                <td>{event.email}</td>
-                <td>{event.pseudo}</td>
-                <td>{event.ville}</td>
-                <td>{event.main_dominante}</td>
+                <td>{adh.num_tel}</td>
+                <td>{adh.email}</td>
+                <td>{adh.pseudo}</td>
+                <td>{adh.ville}</td>
+                <td>{adh.main_dominante}</td>
+                <td>{adh.type_arc}</td>
                 <td>
                   <a
-                    href={`adherent/modifierAdh/${event.id_licence}`}
+                    href={`adherent/modifierAdh/${adh.id_licence}`}
                     className=""
                   >
                     Modifier
                   </a>
-                  <a href={`/supprimer/${event.id_licence}`} className="">
+                  <a
+                    href={`adherent/supprimerAdh/${adh.id_licence}`}
+                    className=""
+                  >
                     Supprimer
                   </a>
                 </td>

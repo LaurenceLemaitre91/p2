@@ -1,9 +1,10 @@
+// api/adherent/[id]/route.ts
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// ---------- RÉCUPÉRER UN ÉVÈNEMENT PAR SON ID -----------------
+// ---------- RÉCUPÉRER UN ADHÉRENT PAR SON ID -----------------
 export async function GET(req: Request) {
   // Création d'un objet URL à partir de l'URL de la requête
   const url = new URL(req.url);
@@ -38,7 +39,7 @@ export async function GET(req: Request) {
     );
   }
 }
-// ---------- METTRE À JOUR UN ÉVÈNEMENT PAR SON ID -----------------
+// ---------- METTRE À JOUR UN ADHÉRENT  PAR SON ID -----------------
 export async function PUT(req: Request) {
   const url = new URL(req.url);
   const id = url.pathname.split("/").pop(); // Récupérer l'ID depuis l'URL
@@ -53,6 +54,7 @@ export async function PUT(req: Request) {
     pseudo,
     ville,
     main_dominante,
+    type_arc,
   } = await req.json();
 
   // Vérifiez les données reçues
@@ -66,6 +68,7 @@ export async function PUT(req: Request) {
     pseudo,
     ville,
     main_dominante,
+    type_arc,
   });
 
   try {
@@ -81,11 +84,39 @@ export async function PUT(req: Request) {
         pseudo,
         ville,
         main_dominante,
+        type_arc,
       },
     });
     return NextResponse.json(updatedEvent);
   } catch (error) {
     console.error("Erreur lors de la mise à jour de l'événement :", error);
+    return NextResponse.json(
+      { error: "Erreur interne du serveur" },
+      { status: 500 }
+    );
+  }
+}
+// ---------- SUPPRIMER UN ADHÉRENT PAR SON ID -----------------
+
+export async function DELETE(req: Request) {
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop(); // Extract the ID from the URL
+
+  if (!id) {
+    console.error("ID requis non fourni");
+    return NextResponse.json({ error: "ID requis" }, { status: 400 });
+  }
+
+  try {
+    console.log(`Tentative de suppression de l'adhérent avec l'ID: ${id}`);
+    const deletedAdherent = await prisma.adherent.delete({
+      where: { id_licence: id },
+    });
+
+    console.log("Adhérent supprimé:", deletedAdherent);
+    return NextResponse.json({ message: "Adhérent supprimé avec succès" });
+  } catch (error) {
+    console.error("Erreur lors de la suppression de l'adhérent :", error);
     return NextResponse.json(
       { error: "Erreur interne du serveur" },
       { status: 500 }

@@ -17,6 +17,7 @@ const FormInscription: React.FC = () => {
     mdp: "",
     ville: "",
     main_dominante: "",
+    type_arc: "",
   });
   const [erreur, setErreur] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -202,7 +203,17 @@ const FormInscription: React.FC = () => {
           />
           <label htmlFor="gauche">Gauche</label>
         </fieldset>
-
+        <label htmlFor="type_arc">Votre type d‘arc</label>
+        <select
+          name="type_arc"
+          id="type_arc"
+          value={formData.type_arc}
+          onChange={handleChange}
+        >
+          <option value="">--Choisissez votre arc--</option>
+          <option value="simple">Simple</option>
+          <option value="A poulie">A poulie</option>
+        </select>
         <div>
           <button className="btn" type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Envoi en cours..." : "Inscription"}

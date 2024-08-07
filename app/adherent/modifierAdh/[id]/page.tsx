@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import React from "react";
 import { useEffect, useState } from "react";
 
 type Adherent = {
@@ -14,6 +15,7 @@ type Adherent = {
   pseudo: string;
   ville: string;
   main_dominante: string;
+  type_arc: string;
 };
 
 const formatDate = (date: Date) => {
@@ -80,6 +82,7 @@ const ModifierAdh = ({ params }: { params: { id: string } }) => {
           pseudo: adh.pseudo,
           ville: adh.ville,
           main_dominante: adh.main_dominante,
+          type_arc: adh.type_arc,
         }),
       });
       if (!response.ok) {
@@ -189,6 +192,16 @@ const ModifierAdh = ({ params }: { params: { id: string } }) => {
             type="text"
             name="main_dominante"
             value={adh.main_dominante}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="type_arc">Type d‘arc:</label>
+          <input
+            type="text"
+            name="type_arc"
+            value={adh.type_arc}
             onChange={handleChange}
             required
           />

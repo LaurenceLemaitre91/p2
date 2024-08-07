@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "target": "ES2020",
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    "outDir": "./dist",
+    "rootDir": "./",
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -17,9 +17,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     },
     "plugins": [
       {
@@ -27,14 +25,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "node_modules/.prisma/client/index.d.ts" // Assurez-vous que ce chemin est inclus
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["dist/prisma/**/*.ts", "src/**/*.ts", "dist/prisma/seed.js"],
+  "exclude": ["node_modules"]
 }

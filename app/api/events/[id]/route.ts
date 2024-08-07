@@ -81,3 +81,33 @@ export async function PUT(req: Request) {
     );
   }
 }
+// ---------- SUPPRIMER UN ÉVÈNEMENT PAR SON ID -----------------
+export async function DELETE(req: Request) {
+  const { pathname } = new URL(req.url);
+  const id = pathname.split("/").pop(); // Récupérer l'ID à partir de l'URL
+
+  if (!id || isNaN(Number(id))) {
+    return NextResponse.json({ error: "ID requis et valide" }, { status: 400 });
+  }
+
+  try {
+    const event = await prisma.evenement.delete({
+      where: { id_evt: Number(id) },
+    });
+
+    if (!event) {
+      return NextResponse.json(
+        { error: "Adhérent non trouvé" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({ message: "Adhérent supprimé avec succès" });
+  } catch (error) {
+    console.error("Erreur lors de la suppression de l'adhérent :", error);
+    return NextResponse.json(
+      { error: "Erreur interne du serveur" },
+      { status: 500 }
+    );
+  }
+}

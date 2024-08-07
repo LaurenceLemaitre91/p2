@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import React from "react";
 import { useEffect, useState } from "react";
 
 type Evenement = {
@@ -118,7 +119,9 @@ const ModifierEvent = ({ params }: { params: { id: string } }) => {
           required
         />
       </label>
-      <button type="submit">Mettre à jour</button>
+      <button className="btn" type="submit">
+        Mettre à jour
+      </button>
     </form>
   );
 };

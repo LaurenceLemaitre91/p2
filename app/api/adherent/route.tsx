@@ -20,6 +20,7 @@ const AdherentSchema = z.object({
   mdp: z.string(),
   ville: z.string(),
   main_dominante: z.string(),
+  type_arc: z.string(),
   id_role: z.number().default(1), // Valeur par défaut à 1
 });
 
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const data: any = {};
+    console.log(data);
     formData.forEach((value, key) => {
       data[key] = value;
     });
@@ -69,6 +71,7 @@ export async function POST(request: Request) {
     );
   }
 }
+
 // ---------- LECTURE DES ADHÉRENTS   -----------------
 export async function GET() {
   try {
@@ -107,6 +110,7 @@ export async function PUT(request: Request) {
       pseudo,
       ville,
       main_dominante,
+      type_arc,
     } = await request.json();
 
     // Vérifier si id_evt est bien défini
@@ -129,6 +133,7 @@ export async function PUT(request: Request) {
         pseudo,
         ville,
         main_dominante,
+        type_arc,
       },
     });
 

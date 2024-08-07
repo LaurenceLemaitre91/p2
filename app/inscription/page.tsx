@@ -1,3 +1,4 @@
+import React from "react";
 import FormInscription from "../../lib/formInscription";
 
 export default function Inscription() {

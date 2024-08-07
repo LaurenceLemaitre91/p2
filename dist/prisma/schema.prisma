@@ -29,13 +29,13 @@ model Adherent {
   num_tel         String
   email           String
   pseudo          String  @unique
-  mdp             String @unique
+  mdp             String  @unique
   ville           String
   main_dominante  String
   id_role         Int
   role            Role     @relation(fields: [id_role], references: [id_role])
   adhesion        Adhesion?
-  type_arc        TypeArc?
+  type_arc        String
   evenements      EvenementHasAdherent[]
 }
 
@@ -49,14 +49,8 @@ model Adhesion {
   @@unique([id_licence])
 }
 
-model TypeArc {
-  id_arc     Int      @id @default(autoincrement())
-  nom_arc    String
-  id_licence String
-  adherent   Adherent @relation(fields: [id_licence], references: [id_licence])
 
-  @@unique([id_licence])
-}
+
 
 model EvenementHasAdherent {
   id_evt     Int      @id @default(autoincrement())
