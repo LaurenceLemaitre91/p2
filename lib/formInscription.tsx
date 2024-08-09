@@ -182,26 +182,34 @@ const FormInscription: React.FC = () => {
 
         <fieldset>
           <legend>Votre main dominante</legend>
-          <input
-            className="checkbox"
-            type="radio"
-            id="droite"
-            name="main_dominante"
-            value="droite"
-            checked={formData.main_dominante === "droite"}
-            onChange={handleChange}
-          />
-          <label htmlFor="droite">Droite</label>
-          <input
-            className="checkbox"
-            type="radio"
-            id="gauche"
-            name="main_dominante"
-            value="gauche"
-            checked={formData.main_dominante === "gauche"}
-            onChange={handleChange}
-          />
-          <label htmlFor="gauche">Gauche</label>
+          <div className="radio__div">
+            <input
+              className="radio"
+              type="radio"
+              id="droite"
+              name="main_dominante"
+              value="droite"
+              checked={formData.main_dominante === "droite"}
+              onChange={handleChange}
+            />
+            <label className="radio__label" htmlFor="droite">
+              Droite
+            </label>
+          </div>
+          <div className="radio__div">
+            <input
+              className="radio"
+              type="radio"
+              id="gauche"
+              name="main_dominante"
+              value="gauche"
+              checked={formData.main_dominante === "gauche"}
+              onChange={handleChange}
+            />
+            <label className="radio__label" htmlFor="gauche">
+              Gauche
+            </label>
+          </div>
         </fieldset>
         <label htmlFor="type_arc">Votre type d‘arc</label>
         <select

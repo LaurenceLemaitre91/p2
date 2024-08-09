@@ -70,6 +70,37 @@ textarea {
 label {
   font-family: var(--font-textes);
 }
+select {
+  border: solid 3px var(--color_secondary);
+
+  margin: 30px;
+  width: 250px;
+  height: 30px;
+}
+fieldset {
+  border: solid 3px var(--color_secondary);
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  width: 20%;
+}
+legend {
+  margin: 10px;
+  text-align: center;
+}
+.radio__div {
+  display: flex;
+  margin: 10px;
+
+  align-items: center;
+}
+.radio__label {
+  text-align: left;
+  margin-left: 0;
+}
+.radio {
+  width: 18%;
+}
 /* ---------- TABLEAUX ------------ */
 table {
   table-layout: fixed;

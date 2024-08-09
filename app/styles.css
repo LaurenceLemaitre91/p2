@@ -80,7 +80,9 @@
 }
 
 /* ---------- HOME ------------ */
-
+.icon {
+  margin: 30px;
+}
 .icon__div__img {
   display: flex;
   flex-direction: row;

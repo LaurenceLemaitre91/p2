@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "target": "ES2020",
     "forceConsistentCasingInFileNames": true,
@@ -17,7 +21,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "plugins": [
       {
@@ -25,6 +31,13 @@
       }
     ]
   },
-  "include": ["dist/prisma/**/*.ts", "src/**/*.ts", "dist/prisma/seed.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "dist/prisma/**/*.ts",
+    "src/**/*.ts",
+    "dist/prisma/seed.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
