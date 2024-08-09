@@ -7,9 +7,9 @@ import Footer from "./components/footer/page";
 
 import localFont from "next/font/local";
 
-const titres = localFont({ src: "../public/font/titres.ttf" });
-const textes = localFont({ src: "../public/font/textes.ttf" });
-const specs = localFont({ src: "../public/font/specs.ttf" });
+const titres = localFont({ src: "../public/fonts/titres.ttf" });
+const textes = localFont({ src: "../public/fonts/textes.ttf" });
+const specs = localFont({ src: "../public/fonts/specs.ttf" });
 
 export const metadata = {
   title: "Les archers sans Limites",
