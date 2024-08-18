@@ -175,9 +175,9 @@
   flex-direction: column;
   margin: 20px;
 }
-.feuille__score__stat {
+.feuille__score__stat__p {
   font-family: var(--font-textes);
-  font-size: 10px;
+  font-size: 20px;
 }
 .feuille__score__div {
   display: flex;

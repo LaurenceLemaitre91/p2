@@ -94,8 +94,10 @@ const Adherent = () => {
         </p>
       </section>
       <section className="feuille__score__stat">
-        <p>Votre main dominante est la {user.main_dominante}</p>
-        <p>
+        <p className="feuille__score__stat__p">
+          Votre main dominante est la {user.main_dominante}
+        </p>
+        <p className="feuille__score__stat__p">
           {user.type_arc !== "Non spécifié"
             ? `Vous utilisez un arc ${user.type_arc}`
             : "Type d'arc non spécifié"}
