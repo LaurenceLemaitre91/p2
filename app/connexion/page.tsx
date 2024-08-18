@@ -7,53 +7,56 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
 const Connexion = () => {
-  // Utilisation du hook useRouter pour obtenir l'instance du routeur Next.js
   const router = useRouter();
-  // Utilisation du hook useState pour gérer le message d'erreur, initialisé à null
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // ----- Fonction pour gérer la soumission du formulaire ----------
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    // Empêche le comportement par défaut du formulaire (rechargement de la page)
     event.preventDefault();
-    // Réinitialise le message d'erreur à null avant de traiter la soumission
     setErrorMessage(null);
 
-    // Récupération des données du formulaire
     const formData = new FormData(event.currentTarget);
-    // Extraction des valeurs de pseudo et mdp à partir des données du formulaire
     const pseudo = formData.get("pseudo") as string;
     const mdp = formData.get("mdp") as string;
 
-    // Validation simple côté client pour vérifier que pseudo et mdp ne sont pas vides
     if (!pseudo || !mdp) {
-      // Mise à jour du message d'erreur si l'un des champs est vide
       setErrorMessage("Identifiant et mot de passe requis.");
       return;
     }
 
-    // Envoi d'une requête POST à l'API d'authentification avec les données du formulaire
-    const response = await fetch("/api/auth", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pseudo, mdp }),
-    });
+    try {
+      const response = await fetch("/api/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pseudo, mdp }),
+      });
 
-    const result = await response.json();
-    console.log("Statut de la réponse :", response.status);
-    console.log("Réponse du serveur :", result);
+      const result = await response.json();
+      console.log("Statut de la réponse :", response.status);
+      console.log("Réponse du serveur :", result);
 
-    // Si la réponse est OK (statut 200), redirection vers la page des adhérents
-    if (response.ok) {
-      // Stocker les informations de l'utilisateur dans un cookie
-      Cookies.set("user", JSON.stringify(result.user), { expires: 1 });
-      if (result.user.id_role === 2) {
-        router.push("/admin");
+      if (response.ok) {
+        Cookies.set("adherent", JSON.stringify(result.adherent), {
+          expires: 1,
+        });
+        if (result.adherent.id_role === 2) {
+          router.push("/admin");
+        } else {
+          // Assurez-vous que result.user.id_licence existe
+          if (result.adherent.id_licence) {
+            router.push(`/adherent/${result.adherent.id_licence}`);
+          } else {
+            console.error("ID de l'adhérent manquant dans la réponse");
+            setErrorMessage(
+              "Erreur lors de la redirection. Veuillez réessayer."
+            );
+          }
+        }
       } else {
-        router.push("/adherent");
+        setErrorMessage(result.error || "Une erreur est survenue.");
       }
-    } else {
-      setErrorMessage(result.error || "Une erreur est survenue.");
+    } catch (error) {
+      console.error("Erreur lors de la connexion:", error);
+      setErrorMessage("Une erreur est survenue lors de l'authentification.");
     }
   }
   return (

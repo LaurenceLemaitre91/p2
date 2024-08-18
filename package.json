@@ -5,6 +5,7 @@
   "scripts": {
     "seed": "node dist/prisma/seed.js",
     "dev": "next dev",
+    "hash-passwords": "node lib/hashMdp.js",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
@@ -35,10 +36,7 @@
     "typescript": "^5.5.4"
   },
   "type": "module",
-  
   "prisma": {
     "schema": "./dist/prisma/schema.prisma"
   }
 }
-
-

@@ -37,7 +37,29 @@ model Adherent {
   adhesion        Adhesion?
   type_arc        String
   evenements      EvenementHasAdherent[]
+   scores     Score[]
 }
+model Score {
+  id_score     Int      @id @default(autoincrement())
+  date_tournoi DateTime @db.Date
+  categorie    String   @db.VarChar(250)
+  lieu         String   @db.VarChar(250)
+  distance     Int
+  taille_cible Int
+  serie        Int
+  volee        Int
+  fleche1      Int
+  fleche2      Int
+  fleche3      Int
+  total_volee  Int
+  total_cumule Int
+  total_score  Int
+  id_licence   String   // Clé étrangère vers la table des adhérents
+  adherent     Adherent @relation(fields: [id_licence], references: [id_licence])
+
+  @@index([id_licence])
+}
+
 
 model Adhesion {
   id_adhesion   Int      @id @default(autoincrement())
