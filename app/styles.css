@@ -83,19 +83,7 @@
   cursor: pointer;
   width: 220px;
   height: 70px;
-}
-
-.btn:hover {
-  transition: 1000ms;
-  padding: 10px 50px;
-  transform: translateY(-0px);
-  background: linear-gradient(
-    90deg,
-    var(--color_secondary) 0%,
-    var(--color_violet) 100%
-  );
-  color: white;
-  border: solid 2px var(--color_secondary);
+  text-decoration: none;
 }
 
 /* ---------- HOME ------------ */

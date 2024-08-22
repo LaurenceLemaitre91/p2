@@ -223,6 +223,9 @@ export default function Admin() {
         </table>
       </section>
       <section className="btn_admin">
+        <Link href="/" className="btn">
+          Retour à l’accueil
+        </Link>
         <Link href="/ajoutEvent" className="btn">
           Ajouter un Évènement
         </Link>

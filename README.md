@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projet de fin de Formation
 
-## Getting Started
+## Développement Web et Accessibilité
 
-First, run the development server:
+Ce site internet est réaliser en NextJS pour le club de tir à l'arc **"Les Archers Sans Limites"** 🏹 de HEILLECOURT (54) en Meurthe et Moselle.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> En plus des informations général sur le club, les adhérents peuvent s'inscrirent et se connecter à leur page personnel avec les statistiques sur leurs scores. L'administrateur peut gérer les adhérents et les événements du club.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Pour les besoins de la démonstration j'ai créer 5 comptes adhérents fictifs et un compte Administrateur.**
 
-## Learn More
+![Page Admistrateur](public/images/schema_adh.png)
 
-To learn more about Next.js, take a look at the following resources:
+- 3 avec des scores
+  | Identifiant | Mot de passe |
+  | ----------- | ------------ |
+  | lilybee91 | lolo54 |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  | Identifiant | Mot de passe |
+  | ----------- | ------------ |
+  | acevedo5064 | ULA03LKU4BF  |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  | Identifiant | Mot de passe |
+  | ----------- | ------------ |
+  | cassady8908 | FJU53KRR2NP  |
 
-## Deploy on Vercel
+- 2 sans score
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  | Identifiant | Mot de passe |
+  | ----------- | ------------ |
+  | oliver9124  | MWH88NGR7XU  |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  | Identifiant  | Mot de passe |
+  | ------------ | ------------ |
+  | cherokee9587 | BXU55UVS3GS  |
+
+- 1 compte administrateur
+
+![Page Admistrateur](public/images/schema_admin.png)
+
+| Identifiant | Mot de passe |
+| ----------- | ------------ |
+| admin       | admin        |
