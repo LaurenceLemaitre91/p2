@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 // Importation des hooks useEffect et useState de React.
 import { useEffect, useState } from "react";
+import React from "react";
 
 // Définir le type TypeScript pour les événements
 type Evenement = {
@@ -82,7 +83,7 @@ export default function Home() {
       </div>
       <h2>Présentation du club</h2>
       <nav className="navhome">
-        <div className="div__link">
+        <div className="div__navhome">
           <Link className="link__navhome" href={"#histoire"}>
             Notre histoire
           </Link>
@@ -258,20 +259,23 @@ export default function Home() {
           au sport, les ruisseaux du Moulin et de Frocourt, le pacage des poneys
           ou encore les jardins familiaux à l’entrée.
         </p>
-        <Image
-          className="img__localisation"
-          src="/images/parc1.webp"
-          width={668}
-          height={450}
-          alt="photo d'un paysage de Forêt avec un terrain de sport dans le fond"
-        />
-        <Image
-          className="img__localisation"
-          src="/images/parc3.webp"
-          width={668}
-          height={450}
-          alt="photo d'un paysage d‘un lac avec de la verdure"
-        />
+        <div className="div__img__localisation">
+          <Image
+            className="img__localisation"
+            src="/images/parc1.webp"
+            width={668}
+            height={450}
+            alt="photo d'un paysage de Forêt avec un terrain de sport dans le fond"
+          />
+          <Image
+            className="img__localisation"
+            src="/images/parc3.webp"
+            width={668}
+            height={450}
+            alt="photo d'un paysage d‘un lac avec de la verdure"
+          />{" "}
+        </div>
+
         <p className="localisation__p">
           Un sentier de découverte du Grand Parc au départ de l’aire des
           manifestations permet d’apprécier 13 spécimens identifiés par une
@@ -284,20 +288,22 @@ export default function Home() {
           permet de se promener à tout âge, avec la possibilité de se reposer et
           d’admirer la faune et la flore environnantes
         </p>
-        <Image
-          className="img__localisation"
-          src="/images/parc2.webp"
-          width={668}
-          height={450}
-          alt="photo d'un paysage avec des jeux d’enfants "
-        />
-        <Image
-          className="img__localisation"
-          src="/images/parc4.webp"
-          width={668}
-          height={450}
-          alt="photo d'un lac dans un parc avec des canards"
-        />
+        <div className="div__img__localisation">
+          <Image
+            className="img__localisation"
+            src="/images/parc2.webp"
+            width={668}
+            height={450}
+            alt="photo d'un paysage avec des jeux d’enfants "
+          />
+          <Image
+            className="img__localisation"
+            src="/images/parc4.webp"
+            width={668}
+            height={450}
+            alt="photo d'un lac dans un parc avec des canards"
+          />
+        </div>
         <p className="localisation__p">
           Autre point d‘intérêt du parc , l’étang de l’Embanie, plan d’eau
           artificiel de 3000 m2 et de 2 mètres de profondeur créé fin 1970. Il
@@ -329,7 +335,10 @@ export default function Home() {
           Le Gymnase se trouve au coeur du parc de l‘Embanie. C‘est l’endroit ou
           se déroule la plupart des entraînements.{" "}
         </p>
-        <h4>Les entraînements on lieu : </h4>
+        <h4>Les entraînements ont lieu : </h4>
+        <p className="localisation__p">
+          Les lundi mardi et jeudi de 16h30 à 18h.
+        </p>
       </section>
     </>
   );

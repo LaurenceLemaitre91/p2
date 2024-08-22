@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 // Utilisez 'next/navigation' pour les composants client
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import React from "react";
 
 const Connexion = () => {
   const router = useRouter();
@@ -17,6 +18,8 @@ const Connexion = () => {
     const formData = new FormData(event.currentTarget);
     const pseudo = formData.get("pseudo") as string;
     const mdp = formData.get("mdp") as string;
+
+    console.log("Tentative de connexion avec:", { pseudo, mdp: "***" });
 
     if (!pseudo || !mdp) {
       setErrorMessage("Identifiant et mot de passe requis.");
@@ -91,6 +94,9 @@ const Connexion = () => {
             {/* Bouton de soumission */}
             Connexion
           </button>
+          <Link className="btn" href={"/"}>
+            Retour à l‘accueil
+          </Link>
         </div>
       </form>
     </>

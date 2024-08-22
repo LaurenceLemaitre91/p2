@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface BestScore {
   id_score: number;
@@ -298,6 +299,9 @@ const Adherent = () => {
           <p>Nous n‘avons pas de données de progression...</p>
         )}
       </section>
+      <Link className="btn" href={"/"}>
+        Retour à l‘accueil
+      </Link>
     </>
   );
 };

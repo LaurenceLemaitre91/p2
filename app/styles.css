@@ -1,27 +1,45 @@
 /* ---------- HEADER -------------*/
 
 .header {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 400px;
   margin: auto;
   background-image: url("/images/banniere.webp");
   background-repeat: no-repeat;
-  background-position: 60%;
-  block-size: 350px;
+  background-size: cover;
+  background-position: center;
+}
+.header__logo {
+  margin-top: 20px; /* Ajoutez un espace en haut pour le logo */
 }
 .navbar {
+  position: absolute; /* Ajoutez cette ligne */
+  bottom: 0; /* Ajoutez cette ligne */
+  left: 0; /* Ajoutez cette ligne */
+  right: 0; /* Ajoutez cette ligne */
   display: flex;
-  align-items: center;
-  position: relative;
-  right: 25%;
-
-  top: 90%;
+  justify-content: center;
+  width: 100%;
   background-color: var(--color_secondary);
-  padding: 30px;
+  padding: 10px 0; /* Ajoutez un peu d'espace en haut et en bas */
   text-align: center;
-  height: 2%;
-
-  /*------- Ombre de la Navbar header---------- */
+}
+.div__link {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+/*------- Ombre de la Navbar header---------- */
+/* Correction de la syntaxe pour le préfixe webkit */
+.navbar {
   -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
     16px 16px 14px 22px rgba(0, 0, 0, 0.02);
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000,
@@ -30,9 +48,10 @@
 .link__navbar {
   color: white;
   margin: 10px;
-  padding: 10px;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   font-size: 18px;
+  transition: all 0.3s ease;
 }
 .link__navbar:hover {
   color: var(--color_secondary);
@@ -142,6 +161,11 @@
   margin-left: 80px;
   margin-right: 80px;
 }
+.div__img__localisation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .img__localisation {
   margin: 40px;
 }
@@ -189,7 +213,7 @@
   display: flex;
   justify-content: center;
 
-  align-items: end;
+  align-items: flex-end;
 }
 .score__div__p {
   color: var(--color_secondary);
@@ -227,6 +251,13 @@
 .footer__adresse {
   margin-right: 15px;
 }
-.copy {
+.footer__adresse__p {
+  font-family: var(--font-textes);
+  font-size: medium;
+}
+
+.copy__p {
+  font-family: var(--font-textes);
+  font-size: medium;
   text-align: center;
 }

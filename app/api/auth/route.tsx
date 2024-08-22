@@ -31,7 +31,9 @@ export async function POST(request: Request) {
 
     console.log("Utilisateur trouvé, vérification du mot de passe...");
     console.log("Mot de passe fourni:", mdp);
+    console.log("Hash stocké dans la base de données:", verif.mdp);
     const isPasswordValid = await bcrypt.compare(mdp, verif.mdp);
+    console.log("Résultat de la comparaison du mot de passe:", isPasswordValid);
 
     if (isPasswordValid) {
       console.log("Authentification réussie pour le pseudo:", pseudo);
