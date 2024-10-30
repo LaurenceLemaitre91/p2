@@ -1,5 +1,3 @@
-// Importer les modules nécessaires et activer le mode client
-//  ce composant est un composant client.
 "use client";
 
 // Importation du composant Image de Next.js pour gérer les images.
@@ -113,7 +111,7 @@ export default function Home() {
             </p>
 
             <br />
-            <p className="histoire__art__div__p">
+            <p className="histoire__art__div__p ">
               Depuis février 2017, après insistance auprès des élus locaux,
               l’association a pu obtenir une subvention municipale et deux
               créneaux d’utilisation de la salle de sport de la commune …… mais

@@ -14,18 +14,18 @@
   background-position: center;
 }
 .header__logo {
-  margin-top: 20px; /* Ajoutez un espace en haut pour le logo */
+  margin-top: 20px;
 }
 .navbar {
-  position: absolute; /* Ajoutez cette ligne */
-  bottom: 0; /* Ajoutez cette ligne */
-  left: 0; /* Ajoutez cette ligne */
-  right: 0; /* Ajoutez cette ligne */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   width: 100%;
   background-color: var(--color_secondary);
-  padding: 10px 0; /* Ajoutez un peu d'espace en haut et en bas */
+  padding: 10px 0;
   text-align: center;
 }
 .div__link {

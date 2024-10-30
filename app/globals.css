@@ -207,3 +207,27 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%;
   border: none;
 }
+
+/* Mobile (moins de 640px) */
+@media (max-width: 640px) {
+  h2 {
+    font-size: medium;
+  }
+
+  form {
+    width: 95%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  input,
+  select,
+  textarea,
+  fieldset {
+    width: 100%;
+    margin: 10px 0; /* Réduire les marges */
+  }
+}
+
+/* Tablette (641px à 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+}
