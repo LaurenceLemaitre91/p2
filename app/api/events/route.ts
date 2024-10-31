@@ -6,7 +6,7 @@ import { z } from "zod";
 const prisma = new PrismaClient();
 
 const EventSchema = z.object({
-  id_evt: z.number().optional(), // Optional si auto-généré
+  id_evt: z.number().optional(), 
   nom: z.string(),
   date_evt: z.string().refine((val) => !isNaN(Date.parse(val)), {
     message: "Format de date invalide",
