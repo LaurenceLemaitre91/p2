@@ -25,6 +25,7 @@ const SupprimerEvent = ({ params }: { params: { id: string } }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // RÉCUPÉRATION DE L ÉVÈNEMENT
   useEffect(() => {
     const fetchEvent = async () => {
       try {
@@ -45,6 +46,7 @@ const SupprimerEvent = ({ params }: { params: { id: string } }) => {
     fetchEvent();
   }, [params.id]);
 
+  // SUPPRIMER L ÉVÈNEMENT
   const handleDelete = async () => {
     setLoading(true);
     try {
